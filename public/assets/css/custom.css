@@ -1,0 +1,26 @@
+.custom-bg{
+    background-color: #009999;
+    padding: 0 1rem;
+}
+.custom-bg .navbar-collapse .navbar-nav .nav-item a{
+    color: white!important;
+}
+.custom-bg .navbar-brand{
+    color: white!important;
+}
+.custom-bg .navbar-collapse .navbar-nav .nav-item.active{
+    background-color: #007F80!important;
+}
+.custom-bg .navbar-collapse .navbar-nav .nav-item .nav-link{
+    padding: .5rem .65rem;
+}
+
+.btn-outline-custom{
+    background-color: transparent;
+    color:white;
+    font-weight: lighter;
+}
+.btn-outline-custom:hover{
+    background-color: #007F80!important;
+    color:white;
+}
