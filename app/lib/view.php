@@ -1,5 +1,6 @@
 <?php
 class View{
+    public $model;
     function __construct() {
     }
     public function render($view) {

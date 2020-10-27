@@ -1,5 +1,5 @@
 <?php
-class Item
+class ItemModel
 {
     private $id;
     private $title;
@@ -11,14 +11,12 @@ class Item
     const MAX_TITLE_LENGTH = 100;
     const MAX_DESCRIPTION_LENGTH = 255;
 
-    public function __construct($title, $description, $price, $category_id) {
+    public function __construct($id, $title, $description, $price, $category_id) {
+        $this->id = $id;
         $this->setTitle($title);
         $this->setDescription($description);
         $this->setPrice($price);
         $this->setCategoryId($category_id);
-
-        // Generate ID only if the given name and description are valid.
-        $this->id = getID();
     }
 
     public function __get($property) {

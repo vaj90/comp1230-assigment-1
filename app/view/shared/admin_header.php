@@ -24,6 +24,7 @@
                     <a class="nav-link" href="#">Search</a>
                 </li>
             </ul>
+            <button class="btn btn-outline-custom" type="submit"><span class="fa fa-sign-in"></span> Login</button>
         </div>
     </nav>
 </header>

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    ob_start();
     defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../app'));
     const DS = DIRECTORY_SEPARATOR;
     $cfg = APPLICATION_PATH . DS . 'config' . DS;
@@ -18,6 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Assign</title>
+    <link type="text/css" rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.css">
     <link type="text/css" rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="/assets/css/custom.css">
     <script src="/vendor/jquery/jquery-3.5.1.min.js"></script>
@@ -26,16 +27,14 @@
 <body>
     <div class="container">
         <?php
-        $app = new Bootstrap();
-        $session_helper = new SessionHelper();
+            $app = new Bootstrap();
+            /*$cfh = new FileHelper("category");
+            $ifh = new FileHelper('item');
+            $id = $ifh->getId();*/
 
-        /*$cfh = new FileHelper("category");
-        $ifh = new FileHelper('item');
-        $id = $ifh->getId();*/
-
-        //echo "<h1>$id</h1>";
-        //$category = new Category($id,'Category 1','This is the description');
-
+            //echo "<h1>$id</h1>";
+            //$category = new Category($id,'Category 1','This is the description');
+        
         ?>
     </div>
 </body>
