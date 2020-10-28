@@ -4,13 +4,17 @@ class Category
     private $id;
     private $name;
     private $description;
+    private $itemCount; // number of items in this category.
+
     const MAX_NAME_LENGTH = 60;
     const MAX_DESCRIPTION_LENGTH = 100;
     public function __construct($id, $name, $description) {
+        echo '<br /> inside category constructor'; // DEBUG
         // Generate ID only if the given name and description are valid.
         $this->id = $id;
         $this->setName($name);
         $this->setDescription($description);
+        $this->itemCount = 0;
     }
 
     public function __get($property) {

@@ -1,5 +1,5 @@
 <?php
-class Category extends Controller {
+class CategoryController extends Controller {
     function __construct() {
         parent::__construct();
     }

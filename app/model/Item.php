@@ -7,6 +7,7 @@ class Item
     private $price;
     private $category_id;
     private $picture; // TODO
+    private $is_promoted; // true if admin marks this item to show on the homepage.
 
     const MAX_TITLE_LENGTH = 100;
     const MAX_DESCRIPTION_LENGTH = 255;

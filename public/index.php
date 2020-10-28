@@ -12,6 +12,8 @@
     require $lib . 'bootstrap.php';
     require $lib . 'view.php';
     require $lib . 'controller.php';
+    require $lib . 'data_manager.php';
+    require $lib . 'flatfile' . DS . 'flatfile.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,12 +31,16 @@
         $app = new Bootstrap();
         $session_helper = new SessionHelper();
 
-        /*$cfh = new FileHelper("category");
-        $ifh = new FileHelper('item');
+        $cfh = new FileHelper("category");
+        /*$ifh = new FileHelper('item');
         $id = $ifh->getId();*/
 
         //echo "<h1>$id</h1>";
         //$category = new Category($id,'Category 1','This is the description');
+
+        $flatfile_db = new Flatfile();
+        $data_manager = new DataManager($flatfile_db);
+        $data_manager->addCategory($cfh->getId(),'category 1', 'category 1 description');
 
         ?>
     </div>
