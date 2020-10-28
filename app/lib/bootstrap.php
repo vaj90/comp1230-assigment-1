@@ -2,7 +2,7 @@
 class Bootstrap {
     function __construct() {
         global $config;
-
+        global $ctrlr;
         $url = $_SERVER['REQUEST_URI'];
         $url = substr($url,1);
     
@@ -29,17 +29,18 @@ class Bootstrap {
             $controller = $url[0];
         }
 
-        $cpath = $config['CONTROLLER_PATH'] . $controller;
+        $cpath = $config['CONTROLLER_PATH'] . $controller . '_controller';
         $file = $cpath . '.php';
 
         if(!file_exists($file)){
             $controller = 'apperror';
             $action = 'notfound';
-            $cpath = $config['CONTROLLER_PATH'] . $controller;
+            $cpath = $config['CONTROLLER_PATH'] . $controller . '_controller';
             $file = $cpath . '.php';
         }
-        require $file;
 
+        require $file;
+        $controller = $controller . "Controller";
         $class = new $controller();
 
         if(isset($url[2])){
@@ -51,15 +52,20 @@ class Bootstrap {
                 $action = $url[1];
             }
         }
-
-        /*if(isset($query_string)){
-            echo "hey";
-            $q_str = explode("&",$query_string);
-            print_r($q_str);
-        }*/
+        //Check method and controller if exists
         $method_checker = method_exists($controller,$action);
         if($method_checker){
             $class->{$action}($param1);
+        }
+        else{
+            $controller = 'apperror';
+            $action = 'notfound';
+            $cpath = $config['CONTROLLER_PATH'] . $controller . '_controller';
+            $file = $cpath . '.php';
+            require $file;
+            $controller = $controller . "Controller";
+            $class = new $controller();
+            $class->{$action}();
         }
 
     }

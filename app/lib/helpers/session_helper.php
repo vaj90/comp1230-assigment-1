@@ -7,7 +7,6 @@ class Session{
         return isset($_SESSION[$key]) ? $_SESSION[$key] :'';
     }
     public static function set($key,$value){
-        echo $key . ' ' .$value;
         $_SESSION[$key]= $value;
     }
     public static function unset($key){

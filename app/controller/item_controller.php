@@ -1,12 +1,12 @@
 <?php
-class CategoryController extends Controller {
+class ItemController extends Controller {
     private $filehelper;
     private $data_manager;
     function __construct() {
         parent::__construct();
-        parent::loadModel('category');
+        parent::loadModel('item');
         Session::init();
-        $this->filehelper = new FileHelper("category");
+        $this->filehelper = new FileHelper("item");
     }
     public function index() {
         $this->view->render('category/index');
@@ -15,8 +15,7 @@ class CategoryController extends Controller {
 
     }
     public function add(){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        
     }
     public function delete(){
         

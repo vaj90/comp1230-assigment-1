@@ -4,6 +4,7 @@
         'CONTROLLER_PATH' => APPLICATION_PATH . DS . 'controller' . DS,
         'MODEL_PATH' => APPLICATION_PATH . DS . 'model' . DS,
         'VIEW_PATH' => APPLICATION_PATH . DS . 'view' . DS,
+        'DATA_PATH' => APPLICATION_PATH . DS . 'data' . DS,
         'LIB_PATH' => APPLICATION_PATH . DS . 'lib' . DS
     ];
 

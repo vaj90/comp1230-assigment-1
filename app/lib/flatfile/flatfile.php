@@ -20,7 +20,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 /**
  * Simple but powerful flatfile database
- * See https://lukeplant.me.uk/resources/flatfile/ for documentation and examples
+ * See http://lukeplant.me.uk/resources/flatfile/ for documentation and examples
  *
  * @tutorial flatfile.pkg
  * @package flatfile
@@ -233,7 +233,6 @@ class Flatfile {
 	{
 		$lockfp = $this->getLock($tablename);			
 		$this->tables[$tablename][] = $newRow;
-//		echo '<br /> inside insert function';
 		$this->writeTable($tablename);
 		$this->releaseLock($lockfp);
 	}

@@ -1,9 +1,9 @@
 <?php
-class Account extends Controller {
+class AccountController extends Controller {
     function __construct() {
         parent::__construct();
-        Session::init();
         parent::loadModel('account');
+        Session::init();
     }
     public function index() {
         $this->view->render('account/index');
@@ -16,14 +16,15 @@ class Account extends Controller {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $account = new AccountModel($username,$password);
-
+        $redirect = URL . 'account/login';
         if($username=='admin' && $password=='admin'){
             $am = serialize($account);
             Session::set("user", $am);
+            Session::set("LoggedIn", true);
             $redirect = URL . 'dashboard';
-            header('Location: ' . URL . 'dashboard');
+            header('Location: '. $redirect);
         }
-
+        $this->errorMessage = "Invalid username and password, please try again!";
     }
     public function logout() {
         Session::destroy(); 

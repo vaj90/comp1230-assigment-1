@@ -1,3 +1,7 @@
+<?php
+    global $ctrlr;
+?>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light custom-bg">
         <a class="navbar-brand" href="#">My Classified</a>
@@ -7,16 +11,21 @@
         <div class="collapse navbar-collapse" id="navbarLinks">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="<?php echo URL ?>">Home  <?php if($ctrlr=="home")  { echo '<span class="sr-only">(current)</span>'; }?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Items</a>
+                    <a class="nav-link" href="<?php echo URL . 'item' ?>">Items</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarCategoriesDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarCategoriesDropDownMenu">
+                        <a class="dropdown-item" href="#">Nothing</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Categories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Search</a>
+                    <a class="nav-link" href="<?php echo URL . 'search'?>">Search</a>
                 </li>
             </ul>
             <a class="btn btn-outline-custom" href="/account/login"><span class="fa fa-sign-in"></span> Login</a>

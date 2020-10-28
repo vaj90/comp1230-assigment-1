@@ -1,12 +1,12 @@
 <?php
 class FileHelper{
-    private $path;
-    public function __construct($path){
-        $this->path = $path;
+    private $file;
+    public function __construct($file){
+        $this->file = $file;
     }
     public function getId(){
         global $config;
-        $file_name = $config['LIB_PATH'] . 'helpers' . DS . $this->path . '.txt' ;
+        $file_name = $config['DATA_PATH'] . $this->file . '.txt' ;
         if (!file_exists($file_name))
         {
             touch($file_name);
