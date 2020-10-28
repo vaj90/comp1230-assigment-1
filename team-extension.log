@@ -42,3 +42,15 @@
 2020-10-27T22:37:40.649Z - debug:  [23864] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
 2020-10-27T22:37:40.650Z - warn:   [23864] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
 2020-10-27T22:37:40.651Z - error:  [23864] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2020-10-28T14:19:40.877Z - debug:  [23864] Reinitializing due to onDidChangeConfiguration
+2020-10-28T14:19:40.886Z - debug:  [23864] Polling interval value (minutes): 12
+2020-10-28T14:19:40.916Z - info:   [23864] *** FOLDER: d:\Project\Project2020\comp1230-assigment-1 ***
+2020-10-28T14:19:40.917Z - info:   [23864] AzureReposVSCode/1.161.1 (VSCode 1.50.1; Windows_NT 10.0.19041; Node 12.14.1)
+2020-10-28T14:19:40.920Z - debug:  [23864] Looking for an External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-28T14:19:40.920Z - debug:  [23864] No External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-28T14:19:41.017Z - debug:  [23864] Looking for TFVC repository at d:\Project\Project2020\comp1230-assigment-1
+2020-10-28T14:19:41.020Z - debug:  [23864] TFVC Creating Tfvc object with localPath='undefined'
+2020-10-28T14:19:41.021Z - debug:  [23864] Using TFS proxy: https://tfisolutions.visualstudio.com/
+2020-10-28T14:19:41.022Z - debug:  [23864] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
+2020-10-28T14:19:41.022Z - warn:   [23864] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
+2020-10-28T14:19:41.024Z - error:  [23864] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
