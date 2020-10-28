@@ -7,3 +7,4 @@
         'LIB_PATH' => APPLICATION_PATH . DS . 'lib' . DS
     ];
 
+    define("URL","http://localhost:8082/");

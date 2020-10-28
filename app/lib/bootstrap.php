@@ -5,9 +5,13 @@ class Bootstrap {
 
         $url = $_SERVER['REQUEST_URI'];
         $url = substr($url,1);
-        /*if(strpos($url,'?')){
-            echo "hey";
-        }*/
+    
+        //$url = isset($_GET['url']) ? $_GET['url'] : null;
+        $pos_uri = strpos($url,'?') ;
+        if($pos_uri> 0){
+            $url = substr($url,0,$pos_uri);
+        }
+
         $url = rtrim($url,'/');
         $url = explode('/', $url);
 
@@ -49,6 +53,7 @@ class Bootstrap {
         }
 
         /*if(isset($query_string)){
+            echo "hey";
             $q_str = explode("&",$query_string);
             print_r($q_str);
         }*/

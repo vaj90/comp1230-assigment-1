@@ -1,5 +1,5 @@
 <?php
-class Category
+class CategoryModel
 {
     private $id;
     private $name;
@@ -9,8 +9,11 @@ class Category
     const MAX_NAME_LENGTH = 60;
     const MAX_DESCRIPTION_LENGTH = 100;
     public function __construct($id, $name, $description) {
+<<<<<<< HEAD:app/model/Category.php
         echo '<br /> inside category constructor'; // DEBUG
         // Generate ID only if the given name and description are valid.
+=======
+>>>>>>> master:app/model/category_model.php
         $this->id = $id;
         $this->setName($name);
         $this->setDescription($description);

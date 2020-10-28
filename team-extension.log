@@ -1,0 +1,56 @@
+2020-10-26T22:34:56.068Z - info:   [28460] *** FOLDER: d:\Project\Project2020\comp1230-assigment-1 ***
+2020-10-26T22:34:56.068Z - info:   [28460] AzureReposVSCode/1.161.1 (VSCode 1.50.1; Windows_NT 10.0.19041; Node 12.14.1)
+2020-10-26T22:34:56.069Z - debug:  [28460] Looking for an External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:34:56.069Z - debug:  [28460] No External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:34:56.074Z - debug:  [28460] Looking for TFVC repository at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:34:56.074Z - debug:  [28460] TFVC Creating Tfvc object with localPath='undefined'
+2020-10-26T22:34:56.075Z - debug:  [28460] Using TFS proxy: https://tfisolutions.visualstudio.com/
+2020-10-26T22:34:56.075Z - debug:  [28460] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
+2020-10-26T22:34:56.075Z - warn:   [28460] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
+2020-10-26T22:34:56.076Z - error:  [28460] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2020-10-26T22:36:07.579Z - debug:  [28460] Reinitializing due to onDidChangeConfiguration
+2020-10-26T22:36:07.580Z - debug:  [28460] Polling interval value (minutes): 12
+2020-10-26T22:36:07.584Z - info:   [28460] *** FOLDER: d:\Project\Project2020\comp1230-assigment-1 ***
+2020-10-26T22:36:07.584Z - info:   [28460] AzureReposVSCode/1.161.1 (VSCode 1.50.1; Windows_NT 10.0.19041; Node 12.14.1)
+2020-10-26T22:36:07.585Z - debug:  [28460] Looking for an External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:36:07.585Z - debug:  [28460] No External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:36:07.591Z - debug:  [28460] Looking for TFVC repository at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:36:07.591Z - debug:  [28460] TFVC Creating Tfvc object with localPath='undefined'
+2020-10-26T22:36:07.591Z - debug:  [28460] Using TFS proxy: https://tfisolutions.visualstudio.com/
+2020-10-26T22:36:07.591Z - debug:  [28460] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
+2020-10-26T22:36:07.592Z - warn:   [28460] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
+2020-10-26T22:36:07.592Z - error:  [28460] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2020-10-26T22:36:31.509Z - debug:  [28460] Reinitializing due to onDidChangeConfiguration
+2020-10-26T22:36:31.510Z - debug:  [28460] Polling interval value (minutes): 12
+2020-10-26T22:36:31.513Z - info:   [28460] *** FOLDER: d:\Project\Project2020\comp1230-assigment-1 ***
+2020-10-26T22:36:31.513Z - info:   [28460] AzureReposVSCode/1.161.1 (VSCode 1.50.1; Windows_NT 10.0.19041; Node 12.14.1)
+2020-10-26T22:36:31.513Z - debug:  [28460] Looking for an External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:36:31.513Z - debug:  [28460] No External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:36:31.521Z - debug:  [28460] Looking for TFVC repository at d:\Project\Project2020\comp1230-assigment-1
+2020-10-26T22:36:31.521Z - debug:  [28460] TFVC Creating Tfvc object with localPath='undefined'
+2020-10-26T22:36:31.521Z - debug:  [28460] Using TFS proxy: https://tfisolutions.visualstudio.com/
+2020-10-26T22:36:31.521Z - debug:  [28460] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
+2020-10-26T22:36:31.521Z - warn:   [28460] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
+2020-10-26T22:36:31.522Z - error:  [28460] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2020-10-27T22:37:40.395Z - info:   [23864] *** FOLDER: d:\Project\Project2020\comp1230-assigment-1 ***
+2020-10-27T22:37:40.404Z - info:   [23864] AzureReposVSCode/1.161.1 (VSCode 1.50.1; Windows_NT 10.0.19041; Node 12.14.1)
+2020-10-27T22:37:40.408Z - debug:  [23864] Looking for an External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-27T22:37:40.409Z - debug:  [23864] No External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-27T22:37:40.646Z - debug:  [23864] Looking for TFVC repository at d:\Project\Project2020\comp1230-assigment-1
+2020-10-27T22:37:40.647Z - debug:  [23864] TFVC Creating Tfvc object with localPath='undefined'
+2020-10-27T22:37:40.649Z - debug:  [23864] Using TFS proxy: https://tfisolutions.visualstudio.com/
+2020-10-27T22:37:40.649Z - debug:  [23864] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
+2020-10-27T22:37:40.650Z - warn:   [23864] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
+2020-10-27T22:37:40.651Z - error:  [23864] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.
+2020-10-28T14:19:40.877Z - debug:  [23864] Reinitializing due to onDidChangeConfiguration
+2020-10-28T14:19:40.886Z - debug:  [23864] Polling interval value (minutes): 12
+2020-10-28T14:19:40.916Z - info:   [23864] *** FOLDER: d:\Project\Project2020\comp1230-assigment-1 ***
+2020-10-28T14:19:40.917Z - info:   [23864] AzureReposVSCode/1.161.1 (VSCode 1.50.1; Windows_NT 10.0.19041; Node 12.14.1)
+2020-10-28T14:19:40.920Z - debug:  [23864] Looking for an External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-28T14:19:40.920Z - debug:  [23864] No External Context at d:\Project\Project2020\comp1230-assigment-1
+2020-10-28T14:19:41.017Z - debug:  [23864] Looking for TFVC repository at d:\Project\Project2020\comp1230-assigment-1
+2020-10-28T14:19:41.020Z - debug:  [23864] TFVC Creating Tfvc object with localPath='undefined'
+2020-10-28T14:19:41.021Z - debug:  [23864] Using TFS proxy: https://tfisolutions.visualstudio.com/
+2020-10-28T14:19:41.022Z - debug:  [23864] TFVC Retrieved from settings; localPath='C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe'
+2020-10-28T14:19:41.022Z - warn:   [23864] TFVC C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\tf.exe does not exist.
+2020-10-28T14:19:41.024Z - error:  [23864] Unable to find the TF executable. Please ensure TF is installed and the path specified contains the filename.

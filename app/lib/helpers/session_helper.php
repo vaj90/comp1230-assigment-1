@@ -1,14 +1,19 @@
 <?php
-class SessionHelper{
-    public function __construct(){
+class Session{
+    public static function init(){
+        session_start();
     }
-    public function getSession($key){
+    public static function get($key){
         return isset($_SESSION[$key]) ? $_SESSION[$key] :'';
     }
-    public function setSession($key,$value){
+    public static function set($key,$value){
+        echo $key . ' ' .$value;
         $_SESSION[$key]= $value;
     }
-    public function unsetSession($key){
+    public static function unset($key){
         unset($_SESSION[$key]);
+    }
+    public static function destroy(){
+        session_destroy();
     }
 }
