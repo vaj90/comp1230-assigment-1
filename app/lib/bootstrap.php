@@ -3,10 +3,10 @@ class Bootstrap {
     function __construct() {
         global $config;
         global $ctrlr;
+        global $rq_method;
         $url = $_SERVER['REQUEST_URI'];
         $url = substr($url,1);
     
-        //$url = isset($_GET['url']) ? $_GET['url'] : null;
         $pos_uri = strpos($url,'?') ;
         if($pos_uri> 0){
             $url = substr($url,0,$pos_uri);
@@ -15,8 +15,8 @@ class Bootstrap {
         $url = rtrim($url,'/');
         $url = explode('/', $url);
 
-        $query_string = $_SERVER['QUERY_STRING'];
-
+        $rq_method = $_SERVER['REQUEST_METHOD'];
+        //$query_string = $_SERVER['QUERY_STRING'];
         /*echo '<pre>';
         print_r($_SERVER);
         print_r($url);
@@ -40,6 +40,7 @@ class Bootstrap {
         }
 
         require $file;
+        $ctrlr = $controller;
         $controller = $controller . "Controller";
         $class = new $controller();
 
@@ -63,11 +64,10 @@ class Bootstrap {
             $cpath = $config['CONTROLLER_PATH'] . $controller . '_controller';
             $file = $cpath . '.php';
             require $file;
+            $ctrlr = $controller;
             $controller = $controller . "Controller";
             $class = new $controller();
             $class->{$action}();
         }
-
     }
-
 }

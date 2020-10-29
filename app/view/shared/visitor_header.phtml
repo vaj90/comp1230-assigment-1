@@ -1,5 +1,7 @@
 <?php
     global $ctrlr;
+    $dm = new DataManager();
+    $getCategies = $dm->getAllCategories();
 ?>
 
 <header>
@@ -10,11 +12,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarLinks">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo URL ?>">Home  <?php if($ctrlr=="home")  { echo '<span class="sr-only">(current)</span>'; }?></a>
+                <li class="nav-item <?php if($ctrlr=="home"){ echo "active"; }?>">
+                    <a class="nav-link" href="<?php echo URL ?>">Home <?php if($ctrlr=="home")  { echo '<span class="sr-only">(current)</span>'; }?></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL . 'item' ?>">Items</a>
+                <li class="nav-item <?php if($ctrlr=="item"){ echo "active"; }?>">
+                    <a class="nav-link" href="<?php echo URL . 'item' ?>">Items <?php if($ctrlr=="item")  { echo '<span class="sr-only">(current)</span>'; }?></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarCategoriesDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,11 +26,15 @@
                         <a class="dropdown-item" href="#">Nothing</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL . 'search'?>">Search</a>
+                <li class="nav-item <?php if($ctrlr=="search"){ echo "active"; }?>">
+                    <a class="nav-link" href="<?php echo URL . 'search'?>">Search <?php if($ctrlr=="search")  { echo '<span class="sr-only">(current)</span>'; }?></a>
                 </li>
             </ul>
-            <a class="btn btn-outline-custom" href="/account/login"><span class="fa fa-sign-in"></span> Login</a>
+            <?php
+                global $logged;
+                $btnLog = $logged ? '<a class="btn btn-outline-custom" href="/account/logout"><span class="fa fa-sign-out"></span> Logout</a>' : '<a class="btn btn-outline-custom" href="/account/login"><span class="fa fa-sign-in"></span> LogIn</a>';
+                echo $btnLog;
+            ?>
         </div>
     </nav>
 </header>

@@ -1,0 +1,1 @@
+11	item	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur commodo vestibulum. Donec tempus fermentum nisi vehicula dignissim. Sed rhoncus ullamcorper dolor eu dictum. Proin posuere ac libero vitae volutpat	1002	\assets\images\5f9a9a0403b7a7.10009891.jpg	1

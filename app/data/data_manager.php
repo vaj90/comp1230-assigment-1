@@ -1,68 +1,148 @@
 <?php
-
-
-define('CATEGORY_ID', 0);
-define('CATEGORY_NAME', 1);
-define('CATEGORY_DESCRIPTION', 2);
-
+global $lib;
+require_once($lib . 'flatfile' . DS . 'flatfile.php');
 class DataManager {
-    private $flatfile_db;
-
-    public function __construct($flatfile_db) {
+    private $flatDb;
+    public function __construct() {
         global $config;
-        echo 'hey flafile';
-        $this->flatfile_db = $flatfile_db;
-        $this->flatfile_db->datadir = $config['DATA_PATH'];
+        $this->flatDb = new Flatfile();
+        $this->flatDb->datadir = $config['DATA_PATH'];
     }
-
-    public function addCategory($id, $name, $description) {
-        // Create Category object first. The constructor validates the given values.
-        // If object is created successfully, the given values are valid.
-        $category_obj = new CategoryModel($id, $name, $description);
-        // Save
-        $new_category[CATEGORY_ID] = $id;
-        $new_category[CATEGORY_NAME] = $name;
-        $new_category[CATEGORY_DESCRIPTION] = $description;
-        echo '<br /> before inserting';
-        //$this->flatfile_db->insert('categories.txt', $new_category);
+    public function addCategory($id, $title, $description) {
+        $model = [
+            'IsSuccess' => true,
+            'Message' => []
+        ];
+        $category_obj = new CategoryModel($id, $title, $description);
+        $new_category = [
+            CATEGORY_ID => $id,
+            CATEGORY_TITLE => $title,
+            CATEGORY_DESCRIPTION => $description
+        ];
+        $error = $category_obj->getErrors();
+        if(count($error)>0){
+            $model['IsSuccess'] = false;
+            $model['Message'] = $error;
+        }
+        else{
+            $this->flatDb->insert('categories.txt', $new_category);
+        }
+        return $model;
     }
-
-    public function updateCategory($category_id, $title, $description) {
-        // TODO
+    public function updateCategory($id, $title, $description) {
+        $model = [
+            'IsSuccess' => true,
+            'Message' => []
+        ];
+        $category_obj = new CategoryModel($id, $title, $description);
+        $new_category = [
+            CATEGORY_ID => $id,
+            CATEGORY_TITLE => $title,
+            CATEGORY_DESCRIPTION => $description
+        ];
+        $error = $category_obj->getErrors();
+        if(count($error)>0){
+            $model['IsSuccess'] = false;
+            $model['Message'] = $error;
+        }
+        else{
+            $this->flatDb->updateSetWhere('categories.txt', $new_category, new SimpleWhereClause(CATEGORY_ID, '=', $id));
+        }
+        return $model;
     }
-    public function RemoveCategory($category_id) {
-
+    public function deleteCategory($id) {
+        try{
+            $this->flatDb->deleteWhere('categories.txt', new SimpleWhereClause(CATEGORY_ID, '=', $id));
+            return true;
+        }
+        catch(Exception $e){
+            return false;
+        }
     }
-
-    public function fetchAllCategories() {
-        // TODO
+    public function getCategoryById($id) {
+        $category = $this->flatDb->selectUnique('categories.txt', CATEGORY_ID, $id);
+        return $category;
     }
-
-    public function addItem($title, $description, $price) {
-        // TODO
+    public function getAllCategories() {
+        $model = $this->flatDb->selectAll('categories.txt');
+        return $model;
     }
-
-    public function fetchItem($item_id) {
-        // TODO
+    public function addItem($id, $title, $description, $price, $picture, $category_id) {
+        $model = [
+            'IsSuccess' => true,
+            'Message' => []
+        ];
+        $item_obj = new ItemModel($id, $title, $description, $price, $picture, $category_id);
+        echo "$id, $title, $description, $price, $picture, $category_id";
+        $new_item = [
+            ITEM_ID => $id,
+            ITEM_TITLE => $title,
+            ITEM_DESCRIPTION => $description,
+            ITEM_PRICE => $price,
+            ITEM_PICTURE => $picture,
+            ITEM_CATEGORY_ID => $category_id
+        ];
+        $error = $item_obj->getErrors();
+        if(count($error)>0){
+            $model['IsSuccess'] = false;
+            $model['Message'] = $error;
+        }
+        else{
+            $this->flatDb->insert('items.txt', $new_item);
+        }
+        return $model;
     }
-
-    public function updateItem($item_id, $title, $description, $price) {
-        // TODO
+    public function updateItem($id, $title, $description, $price, $picture, $category_id) {
+        $model = [
+            'IsSuccess' => true,
+            'Message' => []
+        ];
+        $item_obj = new ItemModel($id, $title, $description, $price, $picture, $category_id);
+        $new_item = [
+            ITEM_ID => $id,
+            ITEM_TITLE => $title,
+            ITEM_DESCRIPTION => $description,
+            ITEM_PRICE => $price,
+            ITEM_PICTURE => $picture,
+            ITEM_CATEGORY_ID => $category_id
+        ];
+        $error = $item_obj->getErrors();
+        if(count($error)>0){
+            $model['IsSuccess'] = false;
+            $model['Message'] = $error;
+        }
+        else{
+            $this->flatDb->updateSetWhere('items.txt', $new_item, new SimpleWhereClause(ITEM_ID, '=', $id));
+        }
+        return $model;
     }
-
-    public function deleteItem($item_id) {
-        // TODO
+    public function deleteItem($id) {
+        try{
+            $this->flatDb->deleteWhere('items.txt', new SimpleWhereClause(ITEM_ID, '=', $id));
+            return true;
+        }
+        catch(Exception $e){
+            return false;
+        }
     }
-
-    public function fetchAllItems() {
-        // TODO
+    public function getItemById($id) {
+        $item = $this->flatDb->selectUnique('items.txt', ITEM_ID, $id);
+        return $item;
     }
-
-    public function fetchAllItemsOfCategory($category_id) {
-        // TODO
+    public function getAllItems() {
+        $model = $this->flatDb->selectAll('items.txt');
+        return $model;
     }
-
-    public function searchItems($search_keyword) {
-        // TODO
+    public function getAllItemsByCategoryId($id) {
+        $items = $this->flatDb->selectWhere('items.txt', new SimpleWhereClause(ITEM_CATEGORY_ID, '=', $id));
+        return $items;
+    }
+    public function deleteAllItemsByCategoryId($id) {
+        $items = $this->flatDb->deleteWhere('items.txt', new SimpleWhereClause(ITEM_CATEGORY_ID, '=', $id));
+        return $items;
+    }
+    public function findItems($search_keyword) {
+        $items = $this->flatDb->selectWhere('items.txt', new SimpleWhereClause(ITEM_DESCRIPTION, '=', $search_keyword, 'strcasecmp'));
+        return $items;
     }
 }

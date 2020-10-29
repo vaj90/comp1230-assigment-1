@@ -6,7 +6,7 @@ class FileHelper{
     }
     public function getId(){
         global $config;
-        $file_name = $config['DATA_PATH'] . $this->file . '.txt' ;
+        $file_name = $config['DATA_PATH'] . $this->file . '_counter.txt' ;
         if (!file_exists($file_name))
         {
             touch($file_name);

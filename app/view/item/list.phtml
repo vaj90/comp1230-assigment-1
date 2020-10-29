@@ -1,0 +1,29 @@
+
+<?php
+    global $vw;
+    $vh = $vw . 'shared\admin_header.phtml';
+    require $vh;
+    $dm = $this->data_manager;
+?>
+<main>
+    <div class="float-right">
+        <a class="btn btn-primary" href="/item/add"><span class="fa fa-plus"></span> Add New Item</a>
+    </div>
+    <h3 class="custom-content-title">Items</h3>
+    <ul class="list-unstyled">
+        <?php foreach($this->model as $key=>$value): ?>
+            <li class="media">
+                <img src="<?php echo $value[4];?>" class="mr-4 img-thumbnail custom-img" alt="<?php echo $value[1];?>">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1"><?php echo $value[1];?></h5>
+                    <?php echo $value[2];?>
+                    <div class="text-right">
+                        <a class="btn btn-primary btn-sm" href="<?php echo '/item/edit/' .  $value[0];?>"><span class="fa fa-pencil"></span> Modify</a>
+                        <button class="btn btn-danger btn-sm btn-item-delete" data-title="<?php echo $value[1];?>" data-action="<?php echo '/item/delete/' .  $value[0];?>"><span class="fa fa-trash-o"></span> Delete</button>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</main>
+

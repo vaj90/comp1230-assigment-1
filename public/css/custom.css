@@ -56,3 +56,29 @@
 .custom-input input:focus{
     box-shadow: inset 0 -1px 0 #ddd;
 }
+
+.custom-ul{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.custom-ul li{
+    padding: 2px 0;
+}
+.custom-ul li a:hover{
+    text-decoration: none;
+}
+.custom-ul li a{
+    color: #000;
+}
+
+.custom-content-title{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.custom-img{
+    max-width: 150px;
+    height: 150px;
+    padding: 5px;;
+    border: 2px solid #dfdfdf;
+}

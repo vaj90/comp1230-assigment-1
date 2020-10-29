@@ -4,11 +4,12 @@ $vh = $vw . 'shared\admin_header.phtml';
 require $vh;
 ?>
 <main>
-    <div class="row">
-    <?php
-    $model = $this->model;
-    print_r($model);
-    echo "<h1>This is</h1>";
-    ?>
-    </div>
+    <ul class="custom-ul">
+        <li>
+            <a href="/item/list"><span class="fa fa-th-large"></span> # items</a>
+        </li>
+        <li>
+            <a href="/category/list"><span class="fa fa-th-list"></span> # categories</a>
+        </li>
+    </ol>
 </main>

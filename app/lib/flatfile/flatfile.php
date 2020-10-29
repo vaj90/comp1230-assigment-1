@@ -562,9 +562,9 @@ class LikeWhereClause extends WhereClause
 		$this->regexp = '/^' . str_replace('%','.*', preg_quote($value)) . '$/i';
 	}
 	
-	function testRow ($tablerow) {
+	/*function testRow ($tablerow) {
 		return preg_match($this->regexp, $tablerow[$this->field]);
-	}
+	}*/
 }
 
 
