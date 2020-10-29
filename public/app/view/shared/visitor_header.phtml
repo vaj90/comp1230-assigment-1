@@ -15,12 +15,9 @@
                 <li class="nav-item <?php if($ctrlr=="home"){ echo "active"; }?>">
                     <a class="nav-link" href="<?php echo URL ?>">Home <?php if($ctrlr=="home")  { echo '<span class="sr-only">(current)</span>'; }?></a>
                 </li>
-                <li class="nav-item <?php if($ctrlr=="item"){ echo "active"; }?>">
-                    <a class="nav-link" href="<?php echo URL . 'item' ?>">Items <?php if($ctrlr=="item")  { echo '<span class="sr-only">(current)</span>'; }?></a>
-                </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown <?php if($ctrlr=="item"){ echo "active"; }?>"">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarCategoriesDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categories
+                        Items Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarCategoriesDropDownMenu">
                         <a class="dropdown-item" href="#">Nothing</a>

@@ -1,7 +1,7 @@
 <?php
     ob_start();
     $root_dir = dirname(__FILE__);
-    defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../app'));
+    defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/app'));
     const DS = DIRECTORY_SEPARATOR;
     $cfg = APPLICATION_PATH . DS . 'config' . DS;
     require $cfg . 'config.php';
@@ -37,6 +37,7 @@
     <div class="container">
         <?php
             $app = new Bootstrap();
+            echo "Hello World";
         ?>
     </div>
 </body>

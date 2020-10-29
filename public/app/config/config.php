@@ -9,7 +9,8 @@
         'LIB_PATH' => APPLICATION_PATH . DS . 'lib' . DS
     ];
 
-    define("URL","http://localhost:8082/");
+    //define("URL","http://localhost:8082/");
+    define("URL","http://f0t22.gblearn.com/");
     define('CATEGORY_ID', 0);
     define('CATEGORY_TITLE', 1);
     define('CATEGORY_DESCRIPTION', 2);
