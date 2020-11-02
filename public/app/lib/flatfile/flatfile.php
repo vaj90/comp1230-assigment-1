@@ -130,7 +130,9 @@ class Flatfile {
 			$limit = array(0, -1);
 		else if (!is_array($limit))
 			$limit = array(0, $limit);
-		
+		/*echo "<pre>";
+		print_r($whereClause);
+		echo "</pre>";*/
 		foreach ($table as $row) {
 			if ($whereClause === NULL || $whereClause->testRow($row, $schema)) {
 				if ($count >= $limit[0]) 
@@ -562,9 +564,9 @@ class LikeWhereClause extends WhereClause
 		$this->regexp = '/^' . str_replace('%','.*', preg_quote($value)) . '$/i';
 	}
 	
-	/*function testRow ($tablerow) {
+	function testRow ($tablerow, $rowSchema = null) {
 		return preg_match($this->regexp, $tablerow[$this->field]);
-	}*/
+	}
 }
 
 

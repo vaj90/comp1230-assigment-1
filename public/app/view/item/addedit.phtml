@@ -1,59 +1,61 @@
 <?php
     global $vw;
-    $vh = $vw . 'shared\admin_header.phtml';
+    $vh = $vw . 'shared/admin_header.phtml';
     require $vh;
     $dm = $this->data_manager;
     $category = $dm->getAllCategories();
 ?>
 <main>
-    <h3 class="custom-content-title"><?php echo $this->title ?></h3>
-    <hr>
-    <form class="form-item" method="post" action="/item/savesubmit" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?php echo $this->model['id'] ?>">
-        <input type="hidden" name="task" value="<?php echo $this->task ?>">
-        <div class="form-group row">
-            <label for="itemTitle" class="text-right col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="itemTitle" name="title" value="<?php echo $this->model['title'] ?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="itemDescription" class="text-right col-sm-2 col-form-label">Description</label>
-            <div class="col-sm-10">
-                <textarea type="text" class="form-control" id="itemDescription" name="description"><?php echo $this->model['description'] ?></textarea>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="itemCategoryId" class="text-right col-sm-2 col-form-label">Category</label>
-            <div class="col-sm-10">
-                <select name="item-category-id" class="custom-select" id="itemCategoryId">
-                    <option value="">Select a category</option>
-                    <?php foreach($category as $value): ?>
-                        <option value="<?php echo $value[0]?>" <?php if($value[0] == $this->model['item-category-id']) { echo "selected";}?>><?php echo $value[1]?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="itemPrice" class="text-right col-sm-2 col-form-label">Price</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="itemPrice" name="price" value="<?php echo $this->model['price'] ?>">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="itemPicture" class="text-right col-sm-2 col-form-label">Picture</label>
-            <div class="col-sm-10">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="picture" id="itemPicture" aria-describedby="itemPictureFileAddon">
-                    <label class="custom-file-label" for="itemPicture">Choose file</label>
+    <div class="container">
+        <h4 class="custom-content-title"><?php echo $this->title ?></h4>
+        <hr>
+        <form class="form-item" method="post" action="<?php echo URL;?>item/savesubmit" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $this->model['id'] ?>">
+            <input type="hidden" name="task" value="<?php echo $this->task ?>">
+            <div class="form-group row">
+                <label for="itemTitle" class="text-right col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="itemTitle" name="title" value="<?php echo $this->model['title'] ?>">
                 </div>
             </div>
-        </div>
-        <div class="form-group row row">
-            <div class="col-sm-10 offset-md-2 ">
-                <button type="submit" class="btn btn-primary"> Save Changes</button>
-                <a class="btn btn-secondary" href="/item/list"> Cancel</a>
+            <div class="form-group row">
+                <label for="itemDescription" class="text-right col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="itemDescription" name="description"><?php echo $this->model['description'] ?></textarea>
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="form-group row">
+                <label for="itemCategoryId" class="text-right col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+                    <select name="item-category-id" class="custom-select" id="itemCategoryId">
+                        <option value="">Select a category</option>
+                        <?php foreach($category as $value): ?>
+                            <option value="<?php echo $value[0]?>" <?php if($value[0] == $this->model['item-category-id']) { echo "selected";}?>><?php echo $value[1]?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="itemPrice" class="text-right col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="itemPrice" name="price" value="<?php echo $this->model['price'] ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="itemPicture" class="text-right col-sm-2 col-form-label">Picture</label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="picture" id="itemPicture" aria-describedby="itemPictureFileAddon">
+                        <label class="custom-file-label" for="itemPicture"><?php echo $this->task=="add"? "Choose file": $this->model['picture']; ?></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row row">
+                <div class="col-sm-10 offset-md-2 ">
+                    <button type="submit" class="btn btn-primary"> Save Changes</button>
+                    <a class="btn btn-secondary" href="<?php echo URL;?>item/list"> Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
 </main>

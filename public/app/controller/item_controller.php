@@ -4,16 +4,58 @@ class ItemController extends Controller {
     private $data_manager;
     function __construct() {
         parent::__construct();
+        // loadModel is a function that allows the program to reference the category model class
         parent::loadModel('item');
+        /*  file helper use to track the current index of the category,
+            it is use to get the number of category in data/category_counter.txt*/
         $this->filehelper = new FileHelper("item");
+        /*  data manager use as main brain of the project where user can get data from 
+            data/category.txt*/
         $this->data_manager = new DataManager();
     }
     public function index() {
+        $model = $this->data_manager->getAllItems();
+        if(isset($_GET['category'])){
+            $model =$this->data_manager->getAllItemsByCategoryId(intVal($_GET['category']));
+        }
+        $page_number = 1;
+        $total_item = count($model);
+        $page_count = $total_item < 3 ? 1 : ceil($total_item/3);
+        if(isset($_GET['page'])){
+            $page_number = intVal($_GET['page']);
+        }
+        $this->view->pagination = [
+            'page_number' => $page_number,
+            'page_count' => $page_count,
+            'total_item' => $total_item
+        ];
+        $this->view->model = $model;
+        $this->view->data_manager = $this->data_manager;
         $this->view->render('item/index');
+    }
+    public function info($id){
+        $model = $this->data_manager->getItemById($id);
+        $this->view->data_manager = $this->data_manager;
+        $this->view->model= $model;
+        $this->view->render('item/info');
     }
     public function list(){
         $this->isAuthenticated();
         $model = $this->data_manager->getAllItems();
+        if(isset($_GET['category'])){
+            $model =$this->data_manager->getAllItemsByCategoryId(intVal($_GET['category']));
+        }
+        $page_number = 1;
+        $total_item = count($model);
+        $page_count = $total_item < 3 ? 1 : ceil($total_item/3);
+        if(isset($_GET['page'])){
+            $page_number = intVal($_GET['page']);
+        }
+        $this->view->pagination = [
+            'page_number' => $page_number,
+            'page_count' => $page_count,
+            'total_item' => $total_item
+        ];
         $this->view->model= $model;
         $this->view->data_manager = $this->data_manager;
         $this->view->render('item/list');
@@ -58,7 +100,11 @@ class ItemController extends Controller {
             header('Location: '  . URL . 'item/list');
             exit;
         }
-        $result = [];
+        $result = [
+            'IsSuccess' => false,
+            'Message' => []
+        ];
+        $result['Message'][] = "Some error occurs while deleting item";
         $this->view->link = "/item/list";
         $this->view->title = "Error in deleting item";
         $this->view->model = $result['Message'];
@@ -87,7 +133,11 @@ class ItemController extends Controller {
         $file_type = $_FILES['picture']['type'];
         $file_error = $_FILES['picture']['error'];
         $file_ext = strtolower(end(explode('.',$file_name)));
-    
+
+        $result = [
+            'IsSuccess' => false,
+            'Message' => []
+        ];
         if (!in_array($file_ext, $file_ext_allowed)) {
             $errors[] = "This file extension is not allowed. Please upload " . implode(" ",$file_ext_allowed) . " file";
         }
@@ -96,35 +146,52 @@ class ItemController extends Controller {
         }
         if (empty($errors)) {
             if($file_error>0){
-                echo "There is an error with the file.";
+                $result['Message'][]= "There is an error with the file.";
             }
             else{
                 $file_new_name = uniqid('',true). "."."$file_ext";
                 $file_destination = $upload_dir . $file_new_name;
                 $picture = $file_destination;
-                
                 $file_destination =  $root_dir . $file_destination;
-                echo $file_destination;
+                $old_picture ="";
                 if($task=="add"){
                     $result = $this->data_manager->addItem($id,$title,$description,$price,$picture,$itemcategoryid);
                 }
                 else{
+                    $data = $this->data_manager->getItemById($id);
                     $result = $this->data_manager->updateItem($id,$title,$description,$price,$picture,$itemcategoryid);
-                }
-                print_r($result);
-                $is_uploaded = move_uploaded_file($file_temporary_name, $file_destination);
-                if (!$is_uploaded) {
-                    $result['IsSuccess'] = false;
-                    $result['Message'][] = "An error occurred. Please contact the administrator.";
+                    $old_picture = $data[4];
                 }
                 if($result['IsSuccess']){
-                    header('Location: '  . URL . 'item/list');
-                    exit;
+                    if($task=="add"){
+                        $is_uploaded = move_uploaded_file($file_temporary_name, $file_destination);
+                        if (!$is_uploaded) {
+                            $result['IsSuccess'] = false;
+                            $result['Message'][] = "An error occurred. Please contact the administrator.";
+                        }
+                    }
+                    else{
+                        if($old_picture!=$picture){
+                            if(!empty($old_picture)){
+                                $old_picture = $root_dir . $old_picture;
+                                unlink($old_picture);
+                            }
+                            $is_uploaded = move_uploaded_file($file_temporary_name, $file_destination);
+                            if (!$is_uploaded) {
+                                $result['IsSuccess'] = false;
+                                $result['Message'][] = "An error occurred. Please contact the administrator.";
+                            }
+                        }
+                    }
+                    if($is_uploaded){
+                        header('Location: '  . URL . 'item/list');
+                        exit;
+                    }
                 }
             }
         } else {
             foreach ($errors as $error) {
-                echo $error . "\n";
+                $result['Message'][]= $error ;
             }
         }
         $this->view->link = $task == "add" ? "/item/add" : "/item/edit/" . $id;

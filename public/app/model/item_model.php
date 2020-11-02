@@ -62,6 +62,10 @@ class ItemModel
         if (!is_int($category_id)) {
             $this->error[] = "Category ID provided is not an integer.";
         }
+        
+        if ($category_id==0) {
+            $this->error[] = "No Category ID selected.";
+        }
 
         $this->category_id = $category_id;
     }

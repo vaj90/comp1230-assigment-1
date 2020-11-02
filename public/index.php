@@ -24,21 +24,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Assign</title>
-    <link type="text/css" rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.css">
-    <link type="text/css" rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
-    <link type="text/css" rel="stylesheet" href="/css/custom.css">
-    <script src="/vendor/jquery/jquery-3.5.1.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/vendor/bootbox/bootbox.js"></script>
-    <script src="/js/app.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COMP 1230 - Advanced Web Programming</title>
+    <link type="text/css" rel="stylesheet" href="<?php echo URL?>vendor/font-awesome/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo URL?>vendor/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo URL?>assets/css/custom.css">
+    <script src="<?php echo URL?>vendor/jquery/jquery-3.5.1.min.js"></script>
+    <script src="<?php echo URL?>vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="<?php echo URL?>vendor/bootbox/bootbox.js"></script>
+    <script src="<?php echo URL?>js/app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <?php
-            $app = new Bootstrap();
-            echo "Hello World";
-        ?>
-    </div>
+    <?php
+        $app = new Bootstrap();
+    ?>
 </body>
 </html>

@@ -4,11 +4,30 @@ class CategoryController extends Controller {
     private $data_manager;
     function __construct() {
         parent::__construct();
+        // loadModel is a function that allows the program to reference the category model class
         parent::loadModel('category');
+        /*  file helper use to track the current index of the category,
+            it is use to get the number of category in data/category_counter.txt*/
         $this->filehelper = new FileHelper("category");
+        /*  data manager use as main brain of the project where user can get data from 
+            data/category.txt*/
         $this->data_manager = new DataManager();
     }
     public function index() {
+        $model = $this->data_manager->getAllCategories();
+        $page_number = 1;
+        $total_item = count($model);
+        $page_count = $total_item < 3 ? 1 : ceil($total_item/3);
+        if(isset($_GET['page'])){
+            $page_number = intVal($_GET['page']);
+        }
+        $this->view->pagination = [
+            'page_number' => $page_number,
+            'page_count' => $page_count,
+            'total_item' => $total_item
+        ];
+        $this->view->model = $model;
+        $this->view->data_manager = $this->data_manager;
         $this->view->render('category/index');
     }
     public function list(){
@@ -46,14 +65,16 @@ class CategoryController extends Controller {
     public function delete($id){
         $this->isAuthenticated();
         $deleteItemByCategoryId = $this->data_manager->deleteAllItemsByCategoryId($id);
-        if($deleteItemByCategoryId){
-            $deleteCategory = $this->data_manager->deleteCategory($id);
-            if($deleteCategory){
-                header('Location: '  . URL . 'category/list');
-                exit;
-            }
+        $deleteCategory = $this->data_manager->deleteCategory($id);
+        if($deleteCategory){
+            header('Location: '  . URL . 'category/list');
+            exit;
         }
-        $result = [];
+        $result = [
+            'IsSuccess' => false,
+            'Message' => []
+        ];
+        $result['Message'][] = "Some error occurs while deleting category";
         $this->view->link = "/category/list";
         $this->view->title = "Error in deleting category";
         $this->view->model = $result['Message'];

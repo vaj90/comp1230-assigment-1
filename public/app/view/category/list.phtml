@@ -1,31 +1,40 @@
 <?php
     global $vw;
-    $vh = $vw . 'shared\admin_header.phtml';
+    $vh = $vw . 'shared/admin_header.phtml';
     require $vh;
     $dm = $this->data_manager;
 ?>
 <main>
-    <div class="float-right">
-        <a class="btn btn-primary" href="/category/add"><span class="fa fa-plus"></span> Add New Category</a>
+    <div class="container">
+        <div class="float-right">
+            <a class="btn btn-primary" href="<?php echo URL;?>category/add"><span class="fa fa-plus"></span> Add New Category</a>
+        </div>
+        <h4 class="custom-content-title">Categories</h4>
+        <?php if(count($this->model)>0):?>
+            <table class="table table-hover table-bordered table-category-list">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Number of Items</th>
+                    <th style="width: 165px;">Action</th>
+                </tr>
+                <?php foreach($this->model as $key=>$value): ?>
+                    <tr>
+                        <td><?php echo $value[1];?></td>
+                        <td><?php echo $value[2];?></td>
+                        <td><?php echo count($dm->getAllItemsByCategoryId($value[0]));?></td>
+                        <td>
+                            <a class="btn btn-primary" href="<?php echo URL . 'category/edit/' .  $value[0];?>"><span class="fa fa-pencil"></span> Modify</a>
+                            <button class="btn btn-danger btn-category-delete" data-title="<?php echo $value[1];?>" data-action="<?php echo URL . 'category/delete/' .  $value[0];?>"><span class="fa fa-trash-o"></span></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php else:?>
+            <div class="text-center">
+                <h3>No categories are listed</h3>
+            </div>
+        <?php endif;?>
+        
     </div>
-    <h3 class="custom-content-title">Categories</h3>
-    <table class="table table-hover table-category-list">
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Number of Items</th>
-            <th>Action</th>
-        </tr>
-        <?php foreach($this->model as $key=>$value): ?>
-            <tr>
-                <td><?php echo $value[1];?></td>
-                <td><?php echo $value[2];?></td>
-                <td><?php echo count($dm->getAllItemsByCategoryId($value[0]));?></td>
-                <td>
-                    <a class="btn btn-primary" href="<?php echo '/category/edit/' .  $value[0];?>"><span class="fa fa-pencil"></span> Modify</a>
-                    <button class="btn btn-danger btn-category-delete" data-title="<?php echo $value[1];?>" data-action="<?php echo '/category/delete/' .  $value[0];?>"><span class="fa fa-trash-o"></span></button>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
 </main>

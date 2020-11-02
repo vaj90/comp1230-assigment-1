@@ -1,1 +1,7 @@
-11	item	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur commodo vestibulum. Donec tempus fermentum nisi vehicula dignissim. Sed rhoncus ullamcorper dolor eu dictum. Proin posuere ac libero vitae volutpat	1002	\assets\images\5f9a9a0403b7a7.10009891.jpg	1
+24	Iphone 12	Apple's latest phone integrated with high-end A-Bionic Chipset.	1200	\assets\img\5f9b52b25985a0.43624577.jpg	11
+25	Iphone 12 Pro	Widescreen Apple phone, with an aeronomic display. 	1500	\assets\img\5f9b5398a050f0.25789212.png	11
+26	Pixel 5	Essentially a newer version of the 765G, this chipset features a faster GPU and boosts the clock speed of the main core in the CPU. Google Pixel	799	\assets\img\5f9e12a1dcc4f7.81659874.png	11
+27	Pixel 4a	With its adaptive battery, Google Pixel 4a reduces power to apps you rarely use. Shop now! The Pixel 4a camera has HDR+, Night Sight, and more.	479	\assets\img\5f9b7079330fc5.79726336.jpg	11
+28	Sony A100	High End Camera	500	\assets\img\5f9b7231097c12.93696404.jpg	14
+30	Sony Ps Vita	The latest gaming console created by sony corporation.	400	\assets\img\5f9db2cf8e5323.33937304.jpg	15
+31	Sony nw-a55	As an entry-level portable player, the NW-A55L delivers an entertaining experience with a detailed and natural-sounding Hi-Res audio performance.	350	\assets\img\5f9d96ee175375.29236958.jpg	21

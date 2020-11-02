@@ -73,7 +73,6 @@ class DataManager {
             'Message' => []
         ];
         $item_obj = new ItemModel($id, $title, $description, $price, $picture, $category_id);
-        echo "$id, $title, $description, $price, $picture, $category_id";
         $new_item = [
             ITEM_ID => $id,
             ITEM_TITLE => $title,
@@ -89,6 +88,7 @@ class DataManager {
         }
         else{
             $this->flatDb->insert('items.txt', $new_item);
+            echo "Added";
         }
         return $model;
     }
@@ -141,8 +141,10 @@ class DataManager {
         $items = $this->flatDb->deleteWhere('items.txt', new SimpleWhereClause(ITEM_CATEGORY_ID, '=', $id));
         return $items;
     }
-    public function findItems($search_keyword) {
-        $items = $this->flatDb->selectWhere('items.txt', new SimpleWhereClause(ITEM_DESCRIPTION, '=', $search_keyword, 'strcasecmp'));
+    public function findItems($keyword) {
+        $compClause = new OrWhereClause();
+        $compClause->add(new LikeWhereClause(ITEM_TITLE, '%'. $keyword .'%'));
+        $items = $this->flatDb->selectWhere('items.txt', $compClause);
         return $items;
     }
 }

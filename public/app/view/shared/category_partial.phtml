@@ -1,0 +1,16 @@
+<?php
+    $category_list = $dm->getAllCategories();
+    $category_selected = "";
+    if(isset($_GET['category'])){
+        $category_info = $dm->getCategoryById(intVal($_GET['category']));
+        $category_selected = $category_info[1];
+    }
+?>
+<h3 class="custom-content-title">Categories</h3>
+<div class="list-group">
+    <?php foreach($category_list as $key=>$value): ?>
+        <a class="list-group-item list-group-item-action <?php echo $value[1]==$category_selected? "active":""; ?>" href="<?php echo URL . $list_link . '?category=' .  $value[0];?>">
+            <?php echo $value[1]?>
+        </a>
+    <?php endforeach; ?>
+</div>

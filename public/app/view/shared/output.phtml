@@ -1,16 +1,18 @@
 <?php
     global $vw;
-    $vh = $vw . 'shared\admin_header.phtml';
+    $vh = $vw . 'shared/admin_header.phtml';
     require $vh;
 ?>
 <main>
-    <h3 class="custom-content-title"><?php echo $this->title; ?></h3>
-    <?php foreach($this->model as $key): ?>
-        <div class="alert alert-danger" role="alert">
-            <?php echo $key?>
+    <div class="container">
+        <h3 class="custom-content-title"><?php echo $this->title; ?></h3>
+        <?php foreach($this->model as $key): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $key?>
+            </div>
+        <?php endforeach; ?>
+        <div class="text-right">
+            <a class="btn btn-primary" href="<?php echo $this->link; ?>"> Go Back</a>
         </div>
-    <?php endforeach; ?>
-    <div class="text-right">
-        <a class="btn btn-primary" href="<?php echo $this->link; ?>"> Go Back</a>
     </div>
 </main>

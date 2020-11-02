@@ -1,0 +1,36 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <?php if($page_number>1): ?>
+            <li class="page-item">
+                <?
+                    $c_param = $param;
+                    $c_param[] = "page=" . ($page_number-1);  
+                ?>
+                <a class="page-link" href="<?php echo URL . $list_link. "?" . join("&", $c_param);?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        <?php endif; ?>
+        <?php for($x = 1; $x <= $page_count; $x++): ?>
+            <?
+                $c_param = $param;
+                $c_param[] = "page=" . $x;  
+                $status = $page_number == $x ? "active": "";
+            ?>
+            <li class="page-item <?php echo $status;?>">
+                <a class="page-link" href="<?php echo URL . $list_link. "?" . join("&", $c_param);?>"><?php echo $x;?></a>
+            </li>
+        <?php endfor; ?>
+        <?php if($page_number<$page_count): ?>
+            <li class="page-item">
+                <?
+                    $c_param = $param;
+                    $c_param[] = "page=" . ($page_number+1);  
+                ?>
+                <a class="page-link" href="<?php echo URL . $list_link. "?" . join("&", $c_param);?>" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        <?php endif; ?>
+    </ul>
+</nav>

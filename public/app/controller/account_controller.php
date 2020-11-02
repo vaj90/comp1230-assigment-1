@@ -6,6 +6,8 @@ class AccountController extends Controller {
     }
     public function index() {
         $this->isAuthenticated();
+        /*$ this->view->render is a function the allow to reference
+            certain .phtml file to display the UI*/
         $this->view->render('account/index');
     }   
     public function login($args) {
