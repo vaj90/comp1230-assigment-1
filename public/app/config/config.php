@@ -9,7 +9,7 @@
         'LIB_PATH' => APPLICATION_PATH . DS . 'lib' . DS
     ];
 
-    define("URL","");
+    define("URL","/");
     define("CONTROLLER_INDEX",0);
     define("METHOD_INDEX",1);
     define("PARAMETER_INDEX",2);

@@ -14,8 +14,7 @@ class SearchController extends Controller {
         }
         $page_number = 1;
         $total_item = count($model);
-        $hasExcess = $total_item%3 == 0 ? 0 : 1;
-        $page_count = $total_item < 3 ? 1 : round($total_item/3) + $hasExcess;
+        $page_count = $total_item < 3 ? 1 : ceil($total_item/3);
         if(isset($_GET['page'])){
             $page_number = intVal($_GET['page']);
         }

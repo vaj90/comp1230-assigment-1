@@ -105,7 +105,7 @@ class ItemController extends Controller {
             'Message' => []
         ];
         $result['Message'][] = "Some error occurs while deleting item";
-        $this->view->link = "/item/list";
+        $this->view->link = "item/list";
         $this->view->title = "Error in deleting item";
         $this->view->model = $result['Message'];
         $this->view->render('shared/output');
@@ -138,11 +138,16 @@ class ItemController extends Controller {
             'IsSuccess' => false,
             'Message' => []
         ];
-        if (!in_array($file_ext, $file_ext_allowed)) {
-            $errors[] = "This file extension is not allowed. Please upload " . implode(" ",$file_ext_allowed) . " file";
+        if($file_name==""){
+            $errors[] = "No file selected.";
         }
-        if ($file_size > 2000000) {
-            $errors[] = "File exceeds maximum size (2MB)";
+        else{
+            if (!in_array($file_ext, $file_ext_allowed)) {
+                $errors[] = "This file extension is not allowed. Please upload " . implode(" ",$file_ext_allowed) . " file";
+            }
+            if ($file_size > 2000000) {
+                $errors[] = "File exceeds maximum size (2MB)";
+            }
         }
         if (empty($errors)) {
             if($file_error>0){
@@ -151,7 +156,7 @@ class ItemController extends Controller {
             else{
                 $file_new_name = uniqid('',true). "."."$file_ext";
                 $file_destination = $upload_dir . $file_new_name;
-                $picture = $file_destination;
+                $picture =  substr(str_replace("\\","/", $file_destination),1);
                 $file_destination =  $root_dir . $file_destination;
                 $old_picture ="";
                 if($task=="add"){
@@ -194,7 +199,7 @@ class ItemController extends Controller {
                 $result['Message'][]= $error ;
             }
         }
-        $this->view->link = $task == "add" ? "/item/add" : "/item/edit/" . $id;
+        $this->view->link = $task == "add" ? "item/add" : "item/edit/" . $id;
         $this->view->title = "Error in " . ($task == "add" ? "creating" : "modifying") . " item";
         $this->view->model = $result['Message'];
         $this->view->render('shared/output');

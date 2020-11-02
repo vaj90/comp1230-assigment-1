@@ -4,6 +4,7 @@
     require $vh;
     $mo = $this->model;
     $ca = $this->data_manager->getCategoryById($mo[5]);
+    $img_root_url = URL;
 ?>
 <main>
     <div class="container">
@@ -14,7 +15,7 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <div class="custom-img-container mt-3 mb-3">
-                                <img src="<?php echo URL . $mo[4];?>" class="card-img" alt="<?php echo $mo[1];?>">
+                                <img src="<?php echo $img_root_url . $mo[4];?>" class="card-img" alt="<?php echo $mo[1];?>">
                             </div>
                         </div>
                         <div class="col-md-8">

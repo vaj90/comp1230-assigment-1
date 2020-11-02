@@ -17,6 +17,7 @@
     if(isset($_GET['category'])){
         $param[] = "category=" . $_GET['category'];
     }
+    $img_root_url = URL;
 ?>
 <main>
     <div class="container">
@@ -31,7 +32,7 @@
                         <?php for($x =($start-1); $x < $end; $x++): ?>
                             <li class="media my-4">
                                 <div class="custom-img-con mr-4 ">
-                                    <img src="<?php echo URL . $mo[$x][4];?>" class="img-thumbnail custom-img" alt="<?php echo $mo[$x][1];?>">
+                                    <img src="<?php echo $img_root_url . $mo[$x][4];?>" class="img-thumbnail custom-img" alt="<?php echo $mo[$x][1];?>">
                                 </div>
                                 <div class="media-body">
                                     <a href="<?php echo URL . 'item/info/' . $mo[$x][0];?>">
@@ -44,7 +45,7 @@
                     </ul>
                 <?php else:?>
                     <div class="text-center">
-                        <h3>No items are listed</h3>
+                        <h5>No items are listed</h5>
                     </div>
                 <?php endif;?>
                 <?php if(count($mo)>0):?>

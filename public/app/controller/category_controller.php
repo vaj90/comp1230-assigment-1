@@ -75,7 +75,7 @@ class CategoryController extends Controller {
             'Message' => []
         ];
         $result['Message'][] = "Some error occurs while deleting category";
-        $this->view->link = "/category/list";
+        $this->view->link = "category/list";
         $this->view->title = "Error in deleting category";
         $this->view->model = $result['Message'];
         $this->view->render('shared/output');
@@ -98,7 +98,7 @@ class CategoryController extends Controller {
             header('Location: '  . URL . 'category/list');
             exit;
         }
-        $this->view->link = $task == "add" ? "/category/add" : "/category/edit/" . $id;
+        $this->view->link = $task == "add" ? "category/add" : "category/edit/" . $id;
         $this->view->title = "Error in " . ($task == "add" ? "creating" : "modifying") . " category";
         $this->view->model = $result['Message'];
         $this->view->render('shared/output');
